@@ -4,13 +4,11 @@ First alpha version of BirdsPyView, a Streamlit app to transform perspective of 
 
 # Installation
 
-First make sure you have **Python** installed.
+First make sure you have **Python 3.12.2** installed.
 
-Then install **OpenCV**, **Streamlit** and **Streamlit Drawable Canvas**:
+Then install requirements.txt file:
 
-    pip install opencv-python
-    pip install streamlit
-    pip install streamlit-drawable-canvas
+    pip install -r requirements.txt
 
 Finally, clone the repo and inside BirdsPyView run:
 

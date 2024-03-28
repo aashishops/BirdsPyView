@@ -35,10 +35,10 @@ if uploaded_file:
 
     st.title('Pitch lines')
 
-    lines_expander = st.beta_expander('Draw pitch lines on selected image (2 horizontal lines, then 2 vertical lines)',
+    lines_expander = st.expander('Draw pitch lines on selected image (2 horizontal lines, then 2 vertical lines)',
                                       expanded=True)
     with lines_expander:
-        col1, col2, col_, col3 = st.beta_columns([2,1,0.5,1])
+        col1, col2, col_, col3 = st.ocolumns([2,1,0.5,1])
 
         with col1:
             canvas_image = st_canvas(
@@ -80,7 +80,7 @@ if uploaded_file:
             st.write('Draw rectangle over players on image. '+
                      'The player location is assumed to the middle of the base of the rectangle.')
 
-            p_col1, p_col2, p_col_, p_col3 = st.beta_columns([2,1,0.5,1])
+            p_col1, p_col2, p_col_, p_col3 = st.columns([2,1,0.5,1])
 
             with p_col2:
                 team_color = st.selectbox("Team color: ", list(colors.keys()))
@@ -128,7 +128,7 @@ if uploaded_file:
                 sensitivity = int(st.slider("Sensitivity (decrease if it is drawing over the players; "+
                                             "increase if the areas don't cover the whole pitch)"
                                             , 0, 30, value=10)*2.5)
-                o_col1, o_col2, o_col3 = st.beta_columns((3,1,3))
+                o_col1, o_col2, o_col3 = st.columns((3,1,3))
                 with o_col2:
                     show_voronoi = st.checkbox('Show Voronoi', value=True)
                     voronoi_opacity = int(st.slider('Voronoi Opacity', 0, 100, value=20)*2.5)
@@ -153,7 +153,7 @@ if uploaded_file:
                 st.markdown(get_table_download_link(dfCoords[['team', 'x', 'y']]), unsafe_allow_html=True)
 
                 #mplsoccer based output viz
-                _, mpl_output, _ = st.beta_columns((1,2,1)) #temporary, as fig size doesn't seem to be working
+                _, mpl_output, _ = st.columns((1,2,1)) #temporary, as fig size doesn't seem to be working
                 from mplsoccer import Pitch
                 pitch = Pitch(pitch_type='statsbomb', pitch_color='#22312b')
                 fig, ax = pitch.draw()
